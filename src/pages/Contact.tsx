@@ -25,6 +25,14 @@ export default function Contact() {
     setStatus('submitting');
     setErrorMsg('');
 
+    if (!supabase) {
+      setStatus('error');
+      setErrorMsg(
+        'Our form is temporarily unavailable. Please call us at (225) 435-8289 — we can take your details over the phone.',
+      );
+      return;
+    }
+
     const { error } = await supabase.from('contact_submissions').insert([form]);
 
     if (error) {
