@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, CheckCircle, Upload } from 'lucide-react';
 import { PageHero } from '../components/UI';
 import { supabase } from '../lib/supabase';
+import Seo from '../components/Seo';
 
 interface EstimateFormProps {
   defaultService?: string;
@@ -52,7 +53,10 @@ export default function FreeEstimate({
 
   return (
     <>
-      <title>Free Foundation Repair Estimate | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Free Foundation Repair Estimate"
+        description="Request your free, no-obligation foundation repair estimate in Baton Rouge. On-site assessment, written scope and pricing, no pressure. Call (225) 435-8289."
+      />
       <PageHero title={title} subtitle={subtitle} cta={false} />
 
       {/* Trust bar */}

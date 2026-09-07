@@ -1,10 +1,14 @@
 import { ArrowRight, CheckCircle, FileText, Clock, Award } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 export default function RealEstate() {
   return (
     <>
-      <title>Foundation Repair for Real Estate Agents Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Foundation Repair for Real Estate Agents"
+        description="Fast foundation inspections, written estimates, and clear documentation for Baton Rouge agents working a deal on a deadline. Keep your closing on track."
+      />
       <PageHero
         title="FOUNDATION REPAIR FOR REAL ESTATE TRANSACTIONS"
         subtitle="Fast estimates, pre-listing inspections, and transferable warranties — built for Baton Rouge agents and buyers."

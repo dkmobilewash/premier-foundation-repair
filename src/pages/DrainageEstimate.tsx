@@ -1,9 +1,13 @@
 import FreeEstimate from './FreeEstimate';
+import Seo from '../components/Seo';
 
 export default function DrainageEstimate() {
   return (
     <>
-      <title>Free Drainage Estimate Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Free Drainage Estimate in Baton Rouge"
+        description="Request a free, no-obligation drainage estimate for your Baton Rouge property. Tell us about the water problem and we'll come assess it at no cost."
+      />
       <FreeEstimate
         defaultService="Drainage"
         title="GET YOUR FREE DRAINAGE ESTIMATE"

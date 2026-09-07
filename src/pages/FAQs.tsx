@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { PageHero, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
+import { faqPageSchema } from '../lib/seo';
 
 const faqs = [
   {
@@ -72,7 +74,11 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function FAQs() {
   return (
     <>
-      <title>Foundation Repair FAQs | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Foundation Repair FAQs"
+        description="Answers to common Baton Rouge foundation questions: warning signs, the drilled pier method, repair cost and timeline, warranty coverage, and financing."
+        schema={faqPageSchema(faqs)}
+      />
       <PageHero title="FREQUENTLY ASKED QUESTIONS" subtitle="Straight answers about foundation repair, drainage, and working with us." cta={false} />
 
       <section className="bg-navy py-20">

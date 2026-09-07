@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Header from './components/Header';
+import Seo from './components/Seo';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 
@@ -159,6 +160,7 @@ function Layout() {
           ))}
           <Route path="*" element={
             <div className="min-h-screen bg-charcoal flex items-center justify-center">
+              <Seo title="Page Not Found" description="This page could not be found." noindex />
               <div className="text-center">
                 <h1 className="font-headline text-6xl text-white mb-4">404</h1>
                 <p className="text-white/60 font-subheading mb-6">Page not found.</p>

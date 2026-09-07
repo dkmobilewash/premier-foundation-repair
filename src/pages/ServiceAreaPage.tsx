@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Wrench, Layers, Droplets, Zap, ArrowRight } from 'lucide-react';
 import { SectionLabel, SectionHeading, GhostNumber, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
+import { clampDescription } from '../lib/seo';
 
 interface ServiceAreaPageProps {
   cityName: string;
@@ -18,7 +20,10 @@ const services = [
 export default function ServiceAreaPage({ cityName, cityIntro, nearbyAreas }: ServiceAreaPageProps) {
   return (
     <>
-      <title>{`Foundation Repair in ${cityName}, Louisiana | Premier Foundation Repair | (225) 435-8289`}</title>
+      <Seo
+        title={`Foundation Repair in ${cityName}, Louisiana`}
+        description={clampDescription(cityIntro)}
+      />
 
       {/* Hero */}
       <section

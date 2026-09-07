@@ -1,9 +1,13 @@
+import Seo from '../../components/Seo';
 import DrainageSubPage from '../DrainageSubPage';
 
 export function CatchBasins() {
   return (
     <>
-      <title>Catch Basin Installation Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Catch Basin Installation in Baton Rouge"
+        description="Catch basin installation for Baton Rouge yards that pool and stay soggy. Collects standing water at the low point and pipes it away from your foundation."
+      />
       <DrainageSubPage
         title="CATCH BASIN INSTALLATION"
         subtitle="Underground collection systems that gather surface runoff and route it safely away from your home and foundation."
@@ -37,7 +41,10 @@ export function CatchBasins() {
 export function ChannelDrains() {
   return (
     <>
-      <title>Channel Drain Installation Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Channel Drain Installation in Baton Rouge"
+        description="Channel and trench drain installation for Baton Rouge driveways, patios, and pool decks, intercepting sheet water before it reaches your slab."
+      />
       <DrainageSubPage
         title="CHANNEL DRAIN INSTALLATION"
         subtitle="Linear drainage solutions for driveways, patios, and hardscaped areas where sheet flow needs to be captured."
@@ -71,7 +78,10 @@ export function ChannelDrains() {
 export function PVCDrains() {
   return (
     <>
-      <title>PVC Drain Installation Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="PVC Drain Line Installation in Baton Rouge"
+        description="Buried PVC drain lines that carry downspout and yard water away from your Baton Rouge foundation to a safe discharge point. Licensed, insured, free estimates."
+      />
       <DrainageSubPage
         title="PVC UNDERGROUND DRAIN SYSTEMS"
         subtitle="Subsurface pipe networks that move water efficiently from collection points to safe discharge locations."
@@ -105,7 +115,10 @@ export function PVCDrains() {
 export function SumpPumps() {
   return (
     <>
-      <title>Sump Pump Installation Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Sump Pump Installation in Baton Rouge"
+        description="Sump pump installation for Baton Rouge crawl spaces and low-lying yards where water has nowhere to drain. Keeps standing water off your foundation."
+      />
       <DrainageSubPage
         title="SUMP PUMP INSTALLATION"
         subtitle="Powered drainage solutions for high water tables, crawl spaces, and severe flooding risk areas in South Louisiana."

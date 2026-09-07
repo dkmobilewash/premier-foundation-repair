@@ -1,10 +1,14 @@
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 export default function Warranty() {
   return (
     <>
-      <title>Foundation Repair Warranty | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Our Foundation Repair Warranty"
+        description="Slab repairs using our drilled pier method carry a lifetime transferable warranty; pier and beam work carries a 10-year limited warranty. See what is covered."
+      />
       <PageHero title="OUR WARRANTY" subtitle="Industry-leading coverage that protects your investment for the life of your home." cta={false} />
 
       <section className="bg-charcoal py-20">

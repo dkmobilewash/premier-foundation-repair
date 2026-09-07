@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Phone, MapPin, Clock, Mail, CheckCircle } from 'lucide-react';
 import { PageHero } from '../components/UI';
 import { supabase } from '../lib/supabase';
+import Seo from '../components/Seo';
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -36,7 +37,10 @@ export default function Contact() {
 
   return (
     <>
-      <title>Contact Premier Foundation Repair of Baton Rouge | (225) 435-8289</title>
+      <Seo
+        title="Contact Us in Baton Rouge"
+        description="Call (225) 435-8289 or send a message to reach Premier Foundation Repair of Baton Rouge. We're at 670 O'Neal Ln and reply within one business day."
+      />
       <PageHero title="CONTACT US" subtitle="Get in touch for a free estimate, a question, or to schedule service." cta={false} />
 
       <section className="bg-charcoal py-20">

@@ -2,6 +2,8 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import { Calendar, Tag, ArrowRight, ArrowLeft } from 'lucide-react';
 import { blogPosts } from './Blog';
 import { CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
+import { blogPostingSchema, clampDescription } from '../lib/seo';
 
 export default function BlogPost() {
   const { slug: paramSlug } = useParams<{ slug: string }>();
@@ -13,6 +15,7 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="min-h-screen bg-charcoal flex items-center justify-center">
+        <Seo title="Post Not Found" description="This blog post could not be found." noindex />
         <div className="text-center">
           <h1 className="font-headline text-4xl text-white mb-4">POST NOT FOUND</h1>
           <Link to="/blog" className="text-royal font-subheading">← Back to Blog</Link>
@@ -23,7 +26,13 @@ export default function BlogPost() {
 
   return (
     <>
-      <title>{`${post.title} | Premier Foundation Repair Baton Rouge`}</title>
+      <Seo
+        title={post.title}
+        description={clampDescription(post.excerpt)}
+        path={`/${post.slug}`}
+        image={post.image}
+        schema={blogPostingSchema(post)}
+      />
 
       {/* Hero */}
       <section className="bg-navy py-20 relative overflow-hidden" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 93%, 0 100%)' }}>

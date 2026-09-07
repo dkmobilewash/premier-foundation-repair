@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { PageHero } from '../components/UI';
+import Seo from '../components/Seo';
 
 export const blogPosts = [
   {
@@ -411,7 +412,10 @@ Every home and every family is different. If you have questions about your speci
 export default function Blog() {
   return (
     <>
-      <title>Foundation Repair Resources & Blog | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Foundation Repair Blog and Resources"
+        description="Straight answers on foundation repair cost, insurance coverage, crack severity, and what to expect during repair, written for Baton Rouge homeowners."
+      />
       <PageHero title="FOUNDATION REPAIR RESOURCES" subtitle="Expert advice for Baton Rouge homeowners navigating foundation repair, drainage, and home maintenance." cta={false} />
 
       <section className="bg-[#E8ECF0] py-20">
