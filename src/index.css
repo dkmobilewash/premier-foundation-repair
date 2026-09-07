@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-charcoal text-white;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply flex items-center gap-3 text-xs font-semibold tracking-widest uppercase text-royal;
+  }
+  .section-label::before,
+  .section-label::after {
+    content: '';
+    @apply flex-1 border-t border-royal opacity-60;
+    max-width: 60px;
+  }
+  .ghost-number {
+    @apply absolute text-white pointer-events-none select-none font-headline;
+    font-size: 12rem;
+    opacity: 0.05;
+    top: -1rem;
+    left: 1rem;
+    z-index: 0;
+    line-height: 1;
+  }
+  .diagonal-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
+  }
+  .diagonal-top {
+    clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 100%);
+  }
+  .card-blue-border {
+    @apply border-l-4 border-royal bg-charcoal;
+  }
+}
+
+@layer utilities {
+  .diagonal-section {
+    clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%);
+  }
+  .diagonal-section-rev {
+    clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 100%);
+  }
+}
