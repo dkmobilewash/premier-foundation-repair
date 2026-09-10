@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { SITE, absoluteUrl } from '../lib/seo';
-
-type JsonLd = Record<string, unknown>;
+import {
+  buildHead,
+  collectHead,
+  headMetaTags,
+  type JsonLd,
+} from '../lib/head';
 
 interface SeoProps {
   /** Page-specific part of the title. The brand suffix is appended automatically. */
@@ -32,10 +35,6 @@ function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
   el.setAttribute('content', content);
 }
 
-function removeMeta(attr: 'name' | 'property', key: string) {
-  document.head.querySelector(`meta[${attr}="${key}"]`)?.remove();
-}
-
 function upsertCanonical(href: string) {
   let el = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!el) {
@@ -50,63 +49,48 @@ function upsertCanonical(href: string) {
  * Sets the document title, meta description, canonical URL, social tags and
  * optional JSON-LD for the page that renders it.
  *
- * React 18 does not hoist <title>/<meta> out of the component tree the way
- * React 19 does, so these are applied to <head> imperatively. Googlebot renders
- * JavaScript and picks them up; non-rendering crawlers (Facebook, X, iMessage)
- * see the static fallbacks in index.html instead.
+ * At build time these same values are baked into the static HTML by
+ * scripts/prerender.mjs, which reads the payload this component collects during
+ * the server pass. At runtime the effect below re-applies them on client-side
+ * navigation, where there is no fresh document to prerender.
  */
-export default function Seo({
-  title,
-  description,
-  path,
-  image,
-  bareTitle = false,
-  noindex = false,
-  schema,
-}: SeoProps) {
+export default function Seo(props: SeoProps) {
   const { pathname } = useLocation();
-  const canonicalPath = path ?? pathname;
-  const schemaJson = schema ? JSON.stringify(schema) : '';
+  const head = buildHead({ ...props, pathname });
+
+  // Prerender pass: no document to mutate, so hand the payload to the collector.
+  if (typeof document === 'undefined') collectHead(head);
+
+  const headJson = JSON.stringify(head);
 
   useEffect(() => {
-    const fullTitle = bareTitle ? title : `${title} | ${SITE.brand}`;
-    const canonical = absoluteUrl(canonicalPath === '/' ? '/' : canonicalPath.replace(/\/+$/, ''));
-    const shareImage = absoluteUrl(image ?? SITE.ogImage);
+    const payload = JSON.parse(headJson);
+    const tags = headMetaTags(payload);
 
-    document.title = fullTitle;
-    upsertMeta('name', 'description', description);
-    upsertCanonical(canonical);
+    document.title = payload.title;
+    upsertCanonical(payload.canonical);
+    for (const [key, value] of Object.entries(tags.name)) upsertMeta('name', key, value as string);
+    for (const [key, value] of Object.entries(tags.property)) upsertMeta('property', key, value as string);
 
-    upsertMeta('property', 'og:title', fullTitle);
-    upsertMeta('property', 'og:description', description);
-    upsertMeta('property', 'og:url', canonical);
-    upsertMeta('property', 'og:image', shareImage);
-    upsertMeta('name', 'twitter:title', fullTitle);
-    upsertMeta('name', 'twitter:description', description);
-    upsertMeta('name', 'twitter:image', shareImage);
-
-    if (noindex) {
+    if (payload.noindex) {
       upsertMeta('name', 'robots', 'noindex, follow');
     } else {
-      removeMeta('name', 'robots');
+      document.head.querySelector('meta[name="robots"]')?.remove();
     }
 
     document.head.querySelectorAll(`script[${SCHEMA_ATTR}]`).forEach((el) => el.remove());
-    if (schemaJson) {
-      const blocks: JsonLd[] = JSON.parse(schemaJson);
-      (Array.isArray(blocks) ? blocks : [blocks]).forEach((block) => {
-        const el = document.createElement('script');
-        el.type = 'application/ld+json';
-        el.setAttribute(SCHEMA_ATTR, '');
-        el.textContent = JSON.stringify(block);
-        document.head.appendChild(el);
-      });
+    for (const block of payload.schema) {
+      const el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.setAttribute(SCHEMA_ATTR, '');
+      el.textContent = JSON.stringify(block);
+      document.head.appendChild(el);
     }
 
     return () => {
       document.head.querySelectorAll(`script[${SCHEMA_ATTR}]`).forEach((el) => el.remove());
     };
-  }, [title, description, canonicalPath, image, bareTitle, noindex, schemaJson]);
+  }, [headJson]);
 
   return null;
 }

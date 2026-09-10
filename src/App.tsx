@@ -176,11 +176,23 @@ function Layout() {
   );
 }
 
+/**
+ * Everything below the router. Kept router-agnostic so the build-time
+ * prerenderer can mount it under a StaticRouter (see src/entry-server.tsx).
+ */
+export function AppShell() {
+  return (
+    <>
+      <ScrollToTop />
+      <Layout />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Layout />
+      <AppShell />
     </BrowserRouter>
   );
 }
