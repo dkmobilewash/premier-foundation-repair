@@ -8,12 +8,17 @@ interface EstimateFormProps {
   defaultService?: string;
   title?: string;
   subtitle?: string;
+  /** Overridden by pages that reuse this form on their own URL. */
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export default function FreeEstimate({
   defaultService = '',
   title = 'GET YOUR FREE FOUNDATION REPAIR ESTIMATE',
   subtitle = 'No obligation. Fast response. Local experts.',
+  seoTitle = 'Free Foundation Repair Estimate',
+  seoDescription = 'Request your free, no-obligation foundation repair estimate in Baton Rouge. On-site assessment, written scope and pricing, no pressure. Call (225) 435-8289.',
 }: EstimateFormProps) {
   const [form, setForm] = useState({
     full_name: '',
@@ -61,10 +66,7 @@ export default function FreeEstimate({
 
   return (
     <>
-      <Seo
-        title="Free Foundation Repair Estimate"
-        description="Request your free, no-obligation foundation repair estimate in Baton Rouge. On-site assessment, written scope and pricing, no pressure. Call (225) 435-8289."
-      />
+      <Seo title={seoTitle} description={seoDescription} />
       <PageHero title={title} subtitle={subtitle} cta={false} />
 
       {/* Trust bar */}
