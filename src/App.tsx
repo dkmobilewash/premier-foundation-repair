@@ -23,6 +23,7 @@ import RealEstate from './pages/RealEstate';
 import FoundationQuiz from './pages/FoundationQuiz';
 import FreeEstimate from './pages/FreeEstimate';
 import Blog, { blogPosts } from './pages/Blog';
+import Privacy from './pages/Privacy';
 import BlogPost from './pages/BlogPost';
 import ServiceAreaPage from './pages/ServiceAreaPage';
 
@@ -152,6 +153,7 @@ function Layout() {
           <Route path="/foundation-quiz" element={<FoundationQuiz />} />
           <Route path="/free-estimate" element={<FreeEstimate />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/privacy" element={<Privacy />} />
           {blogPosts.map((p) => (
             <Route key={p.slug} path={`/${p.slug}`} element={<BlogPost />} />
           ))}
