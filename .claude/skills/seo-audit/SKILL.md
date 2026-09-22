@@ -55,7 +55,7 @@ traffic, not by count of affected pages:
 4. **Metadata quality** — title and description lengths, social tags. Real but
    minor; never lead with it.
 
-A defect appearing on 41 pages is usually one shared component. Trace it to the
+A defect appearing on every page is usually one shared component. Trace it to the
 file before reporting it as 41 problems.
 
 Some warnings are expected and not worth acting on — long blog titles where

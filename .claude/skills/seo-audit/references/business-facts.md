@@ -25,7 +25,7 @@ ask the owner rather than inferring it.
 
 - **Contractor licence number.** `src/components/Footer.tsx:137` still reads the
   literal placeholder `Louisiana Contractors License #LICENSE`. This is
-  customer-facing on all 41 pages and should be corrected or removed.
+  customer-facing on every page and should be corrected or removed.
 - **Social profile URLs.** The Facebook, Instagram and Google Reviews icons in
   the footer are all `href="#"`. Until real URLs exist there is no `sameAs`
   array to add to the schema.

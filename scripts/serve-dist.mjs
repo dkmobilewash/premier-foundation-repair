@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /**
  * Static server that models Vercel's routing order for local verification:
- * exact file → <path>.html → <path>/index.html → SPA fallback to /index.html.
+ * redirects → exact file → <path>.html → <path>/index.html → SPA fallback.
+ *
+ * Redirects are read from vercel.json so a retired URL behaves here the way it
+ * will in production, instead of silently falling through to the SPA 404.
  *
  * `vite preview` sends every extensionless path straight to the SPA fallback,
  * which hides prerendered pages and makes hydration look broken locally even
@@ -9,9 +12,17 @@
  */
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const DIST = path.join(process.cwd(), 'dist');
+
+/** Exact-path redirects declared in vercel.json. */
+const REDIRECTS = new Map(
+  (JSON.parse(readFileSync(path.join(process.cwd(), 'vercel.json'), 'utf8')).redirects ?? [])
+    .filter((r) => !r.source.includes(':') && !r.source.includes('('))
+    .map((r) => [r.source, { to: r.destination, status: r.permanent ? 308 : 307 }]),
+);
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css',
   '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png',
@@ -34,7 +45,16 @@ async function resolve(pathname) {
 
 export function serve(port) {
   const server = createServer(async (req, res) => {
-    const file = await resolve(new URL(req.url, 'http://x').pathname);
+    const pathname = new URL(req.url, 'http://x').pathname;
+
+    const hit = REDIRECTS.get(pathname.replace(/\/+$/, '') || '/');
+    if (hit) {
+      res.writeHead(hit.status, { location: hit.to });
+      res.end();
+      return;
+    }
+
+    const file = await resolve(pathname);
     try {
       const body = await readFile(file);
       res.writeHead(200, { 'content-type': TYPES[path.extname(file)] ?? 'application/octet-stream' });

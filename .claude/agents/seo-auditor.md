@@ -28,8 +28,9 @@ from. Use the report for *what* is true.
    audit reads the prerendered HTML. Auditing a stale `dist/` reports stale facts.
 2. Read `seo-report.json`. It has a `pages` array (per-route measurements) and
    a `findings` array (`level`, `route`, `check`, `message`).
-3. For each finding that matters, trace it to its cause in `src/`. A defect on
-   40 pages is almost always one shared component, not 40 problems.
+3. For each finding that matters, trace it to its cause in `src/`. A defect
+   reported on every page is almost always one shared component, not one
+   problem per page.
 4. Report, most severe first.
 
 ## What counts as severe
@@ -51,7 +52,7 @@ Rank by what it costs in traffic, not by how many pages it touches:
 
 For each finding give: the routes affected, the file and line that causes it,
 what it costs, and the specific fix. Be concrete — "`src/components/Footer.tsx:137`
-ships the literal placeholder `#LICENSE` on all 41 pages" beats "the footer
+ships the literal placeholder `#LICENSE` on every page" beats "the footer
 has a problem".
 
 State what you verified versus what you suspect. If a claim rests on something
