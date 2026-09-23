@@ -236,6 +236,7 @@ We work with real estate agents across Greater Baton Rouge to provide fast, hone
   },
   {
     slug: 'average-cost-foundation-repair-baton-rouge',
+    updated: '2026-09-22',
     date: 'Jun 17, 2025',
     category: 'Pricing',
     title: 'What Is the Average Cost for Foundation Repair in Baton Rouge?',
@@ -298,6 +299,7 @@ Every home is different, and the only way to know your real cost is a free on-si
   },
   {
     slug: 'live-in-house-during-foundation-repair',
+    updated: '2026-09-22',
     date: 'Jun 24, 2025',
     category: 'Foundation Tips',
     title: 'Can You Live in a House While Foundation Repair Is Done?',

@@ -50,14 +50,29 @@ export function faqPageSchema(faqs: { q: string; a: string }[]) {
   };
 }
 
+export function breadcrumbSchema(trail: { name: string; path: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map((crumb, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: crumb.name,
+      item: absoluteUrl(crumb.path),
+    })),
+  };
+}
+
 export function blogPostingSchema(post: {
   slug: string;
   title: string;
   excerpt: string;
   date: string;
+  updated?: string;
   image?: string;
 }) {
   const published = new Date(post.date);
+  const modified = post.updated ? new Date(post.updated) : null;
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -67,6 +82,9 @@ export function blogPostingSchema(post: {
     ...(Number.isNaN(published.getTime())
       ? {}
       : { datePublished: published.toISOString().slice(0, 10) }),
+    ...(modified && !Number.isNaN(modified.getTime())
+      ? { dateModified: modified.toISOString().slice(0, 10) }
+      : {}),
     author: { '@type': 'Organization', name: SITE.name, ...businessRef },
     publisher: { '@type': 'Organization', name: SITE.name, ...businessRef },
     mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl(`/${post.slug}`) },

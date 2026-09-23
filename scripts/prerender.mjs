@@ -7,9 +7,10 @@
  * but other crawlers largely do not, so every route is prerendered at build
  * time and React hydrates over it (see src/main.tsx).
  *
- * Routes come from public/sitemap.xml, which makes the sitemap the single
- * source of truth — a URL listed there but not served by the router fails the
- * build rather than shipping a sitemap that points at 404s.
+ * Routes come from the manifest in src/routes.ts, which also generates
+ * public/sitemap.xml — so the sitemap and the generated pages cannot disagree.
+ * A route in the manifest that the router does not serve fails the build rather
+ * than shipping a sitemap that points at 404s.
  *
  * Runs entirely in Node via react-dom/server. No headless browser, so it works
  * on any CI or Vercel build container without extra setup.
@@ -21,7 +22,6 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
 const SSR_ENTRY = path.join(ROOT, 'dist-ssr', 'entry-server.js');
-const SITEMAP = path.join(ROOT, 'public', 'sitemap.xml');
 
 const escapeAttr = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -64,30 +64,24 @@ function applyHead(html, head) {
       'twitter:image': head.image,
     },
     property: {
+      'og:type': head.ogType ?? 'website',
       'og:title': head.title,
       'og:description': head.description,
       'og:url': head.canonical,
       'og:image': head.image,
+      ...(head.article?.publishedTime
+        ? { 'article:published_time': head.article.publishedTime }
+        : {}),
+      ...(head.article?.modifiedTime
+        ? { 'article:modified_time': head.article.modifiedTime }
+        : {}),
+      ...(head.article?.section ? { 'article:section': head.article.section } : {}),
     },
   };
   for (const [key, value] of Object.entries(meta.name)) out = upsertMeta(out, 'name', key, value);
   for (const [key, value] of Object.entries(meta.property)) out = upsertMeta(out, 'property', key, value);
   if (head.noindex) out = upsertMeta(out, 'name', 'robots', 'noindex, follow');
   return appendSchema(out, head.schema);
-}
-
-function routesFromSitemap() {
-  const xml = readFileSync(SITEMAP, 'utf8');
-  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
-  if (!locs.length) throw new Error('No <loc> entries found in public/sitemap.xml');
-  const seen = new Set();
-  return locs.map((loc) => {
-    const { pathname } = new URL(loc);
-    const route = pathname !== '/' ? pathname.replace(/\/+$/, '') : '/';
-    if (seen.has(route)) throw new Error(`Duplicate URL in sitemap.xml: ${route}`);
-    seen.add(route);
-    return route;
-  });
 }
 
 const outputFor = (route) =>
@@ -99,8 +93,15 @@ if (!template.includes('<div id="root"></div>')) {
   process.exit(1);
 }
 
-const { render } = await import(pathToFileURL(SSR_ENTRY).href);
-const routes = routesFromSitemap();
+const { render, routes: manifest } = await import(pathToFileURL(SSR_ENTRY).href);
+
+const seen = new Set();
+const routes = manifest.map((r) => {
+  const route = r.path === '/' ? '/' : r.path.replace(/\/+$/, '');
+  if (seen.has(route)) throw new Error(`Duplicate route in src/routes.ts: ${route}`);
+  seen.add(route);
+  return route;
+});
 const problems = [];
 let totalText = 0;
 
@@ -119,9 +120,9 @@ for (const route of routes) {
     continue;
   }
   // The catch-all 404 is the only route that sets noindex; reaching it from a
-  // sitemap URL means the sitemap and the router have drifted apart.
+  // manifest entry means src/routes.ts and the router have drifted apart.
   if (head.noindex) {
-    problems.push(`${route}: listed in sitemap.xml but the router renders the 404 page`);
+    problems.push(`${route}: in the route manifest but the router renders the 404 page`);
     continue;
   }
 

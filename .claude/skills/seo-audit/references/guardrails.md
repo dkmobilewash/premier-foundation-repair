@@ -30,14 +30,15 @@ customers. It is deliberately absent from the LocalBusiness node in
 These are enforced by `scripts/prerender.mjs` and `scripts/seo-audit.mjs`, and
 the build fails if broken. Do not work around them:
 
-- Every route in `public/sitemap.xml` renders real content and is not the 404.
+- Every route in `src/routes.ts` renders real content and is not the 404.
 - Every page has exactly one `<h1>`, a unique title, a unique description, and
   a canonical pointing at its own URL.
 - No page in the sitemap is `noindex`.
 - No internal link points at a route that does not exist.
 
-`public/sitemap.xml` is the route manifest. A new page means a new route *and* a new
-sitemap entry, or it will not be prerendered.
+`src/routes.ts` is the route manifest. A new page means a route in the router
+and an entry there; `public/sitemap.xml` is generated from it at build time and
+must never be hand-edited, or the next build will overwrite the edit.
 
 ## Never let the prerender and the runtime disagree
 

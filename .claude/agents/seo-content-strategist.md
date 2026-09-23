@@ -52,7 +52,7 @@ Each brief contains:
 ## Grounding
 
 Read before you write: `seo-report.json` for what exists and how thin it is,
-`public/sitemap.xml` for the route list, and the actual page under `src/pages/`
+`src/routes.ts` for the route list, and the actual page under `src/pages/`
 you are briefing. A brief that duplicates content already on the page wastes
 everyone's time.
 

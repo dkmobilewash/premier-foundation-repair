@@ -32,6 +32,16 @@ export default function BlogPost() {
         path={`/${post.slug}`}
         image={post.image}
         schema={blogPostingSchema(post)}
+        article={{
+          publishedTime: new Date(post.date).toISOString(),
+          modifiedTime: new Date(post.updated ?? post.date).toISOString(),
+          section: post.category,
+        }}
+        breadcrumb={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+          { name: post.title, path: `/${post.slug}` },
+        ]}
       />
 
       {/* Hero */}

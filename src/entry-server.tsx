@@ -4,6 +4,9 @@ import { StaticRouter } from 'react-router';
 import { AppShell } from './App';
 import { takeCollectedHead, type HeadPayload } from './lib/head';
 
+export { routes } from './routes';
+export type { RouteDef } from './routes';
+
 export interface RenderResult {
   html: string;
   head: HeadPayload | null;

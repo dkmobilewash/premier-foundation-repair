@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/check-env.mjs && vite build && npm run prerender",
+    "build": "node scripts/check-env.mjs && npm run build:ssr && npm run sitemap && vite build && npm run prerender",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "check-env": "node scripts/check-env.mjs",
-    "prerender": "vite build --ssr src/entry-server.tsx --outDir dist-ssr --emptyOutDir --logLevel warn && node scripts/prerender.mjs",
-    "seo:audit": "node scripts/seo-audit.mjs"
+    "prerender": "node scripts/prerender.mjs",
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr --emptyOutDir --logLevel warn",
+    "sitemap": "node scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

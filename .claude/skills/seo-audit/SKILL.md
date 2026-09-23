@@ -15,8 +15,10 @@ It is a Vite + React SPA that is **prerendered to static HTML at build time**.
 That matters for every judgement you make here:
 
 - `scripts/prerender.mjs` renders all routes with `react-dom/server` and writes
-  `dist/<route>/index.html`. The routes come from `public/sitemap.xml`, which
-  is the route manifest — a page not listed there is never generated.
+  `dist/<route>/index.html`. The routes come from `src/routes.ts`, the route
+  manifest — a page not listed there is never generated, and
+  `public/sitemap.xml` is generated from the same manifest so the two cannot
+  disagree. Never hand-edit the sitemap.
 - `scripts/seo-audit.mjs` reads that prerendered HTML. It measures what a
   crawler actually receives, not what the source suggests.
 - Head tags come from `buildHead()` in `src/lib/head.ts`, shared by the runtime

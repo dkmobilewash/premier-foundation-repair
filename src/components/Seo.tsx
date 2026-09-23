@@ -20,6 +20,10 @@ interface SeoProps {
   noindex?: boolean;
   /** Page-level structured data, appended alongside the site-wide LocalBusiness node. */
   schema?: JsonLd | JsonLd[];
+  /** Marks the page as an article and adds the og article timestamps. */
+  article?: { publishedTime?: string; modifiedTime?: string; section?: string };
+  /** Breadcrumb trail. Derived from the path when omitted. */
+  breadcrumb?: { name: string; path: string }[];
 }
 
 const SCHEMA_ATTR = 'data-seo-schema';
