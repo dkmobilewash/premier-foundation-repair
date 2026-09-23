@@ -11,11 +11,5 @@
       "destination": "/average-cost-foundation-repair-baton-rouge",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
   ]
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, CheckCircle, Upload } from 'lucide-react';
 import { PageHero } from '../components/UI';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import Seo from '../components/Seo';
 
 interface EstimateFormProps {
@@ -46,6 +46,7 @@ export default function FreeEstimate({
     setStatus('submitting');
     setErrorMsg('');
 
+    const supabase = await getSupabase();
     if (!supabase) {
       setStatus('error');
       setErrorMsg(

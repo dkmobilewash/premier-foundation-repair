@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Static server that models Vercel's routing order for local verification:
- * redirects → exact file → <path>.html → <path>/index.html → SPA fallback.
+ * redirects → exact file → <path>.html → <path>/index.html → 404.html with a
+ * 404 status.
  *
  * Redirects are read from vercel.json so a retired URL behaves here the way it
  * will in production, instead of silently falling through to the SPA 404.
@@ -40,7 +41,7 @@ async function resolve(pathname) {
       if ((await stat(file)).isFile()) return file;
     } catch { /* try next candidate */ }
   }
-  return path.join(DIST, 'index.html'); // SPA fallback, same as vercel.json
+  return null; // nothing matched: the caller serves 404.html with a 404 status
 }
 
 export function serve(port) {
@@ -56,6 +57,13 @@ export function serve(port) {
 
     const file = await resolve(pathname);
     try {
+      if (!file) {
+        // No SPA catch-all any more, so an unmatched URL is a real 404 carrying
+        // the prerendered error page rather than a 200 carrying "not found".
+        res.writeHead(404, { 'content-type': TYPES['.html'] });
+        res.end(await readFile(path.join(DIST, '404.html')));
+        return;
+      }
       const body = await readFile(file);
       res.writeHead(200, { 'content-type': TYPES[path.extname(file)] ?? 'application/octet-stream' });
       res.end(body);

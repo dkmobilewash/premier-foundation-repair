@@ -153,9 +153,25 @@ for (const route of routes) {
   writeFileSync(out, page);
 }
 
+// The catch-all route, rendered to dist/404.html. With no SPA rewrite, an
+// unmatched URL is a real 404 instead of a 200 carrying "page not found" —
+// which Google treats as a soft 404 and which wastes crawl budget on junk URLs.
+{
+  const { html, head } = render('/__not_found__');
+  if (!head?.noindex) {
+    problems.push('404.html: the catch-all route did not render the noindex 404 page');
+  } else {
+    const page = applyHead(template, head).replace(
+      '<div id="root"></div>',
+      () => `<div id="root">${html}</div>`,
+    );
+    writeFileSync(path.join(DIST, '404.html'), page);
+  }
+}
+
 const ok = routes.length - problems.length;
 console.log(
-  `prerender: ${ok}/${routes.length} routes written to static HTML ` +
+  `prerender: ${ok}/${routes.length} routes + 404.html written to static HTML ` +
     `(avg ${Math.round(totalText / Math.max(ok, 1))} chars of text per page)`,
 );
 

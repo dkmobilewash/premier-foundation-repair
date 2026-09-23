@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Phone, MapPin, Clock, Mail, CheckCircle } from 'lucide-react';
 import { PageHero } from '../components/UI';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
 import Seo from '../components/Seo';
 
 export default function Contact() {
@@ -25,6 +25,7 @@ export default function Contact() {
     setStatus('submitting');
     setErrorMsg('');
 
+    const supabase = await getSupabase();
     if (!supabase) {
       setStatus('error');
       setErrorMsg(
