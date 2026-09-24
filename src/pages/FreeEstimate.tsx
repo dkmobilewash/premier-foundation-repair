@@ -1,18 +1,24 @@
 import { useState } from 'react';
 import { ArrowRight, CheckCircle, Upload } from 'lucide-react';
 import { PageHero } from '../components/UI';
-import { supabase } from '../lib/supabase';
+import { getSupabase } from '../lib/supabase';
+import Seo from '../components/Seo';
 
 interface EstimateFormProps {
   defaultService?: string;
   title?: string;
   subtitle?: string;
+  /** Overridden by pages that reuse this form on their own URL. */
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export default function FreeEstimate({
   defaultService = '',
   title = 'GET YOUR FREE FOUNDATION REPAIR ESTIMATE',
   subtitle = 'No obligation. Fast response. Local experts.',
+  seoTitle = 'Free Foundation Repair Estimate',
+  seoDescription = 'Request your free, no-obligation foundation repair estimate in Baton Rouge. On-site assessment, written scope and pricing, no pressure. Call (225) 435-8289.',
 }: EstimateFormProps) {
   const [form, setForm] = useState({
     full_name: '',
@@ -40,6 +46,15 @@ export default function FreeEstimate({
     setStatus('submitting');
     setErrorMsg('');
 
+    const supabase = await getSupabase();
+    if (!supabase) {
+      setStatus('error');
+      setErrorMsg(
+        'Our form is temporarily unavailable. Please call us at (225) 435-8289 — we can take your details over the phone.',
+      );
+      return;
+    }
+
     const { error } = await supabase.from('estimate_requests').insert([form]);
 
     if (error) {
@@ -52,7 +67,7 @@ export default function FreeEstimate({
 
   return (
     <>
-      <title>Free Foundation Repair Estimate | Premier Foundation Repair Baton Rouge</title>
+      <Seo title={seoTitle} description={seoDescription} />
       <PageHero title={title} subtitle={subtitle} cta={false} />
 
       {/* Trust bar */}

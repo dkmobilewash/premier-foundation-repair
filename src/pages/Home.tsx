@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Wrench, Layers, Droplets, Zap, CheckCircle, MapPin, ArrowRight, Phone, ShieldCheck, Clock, Award } from 'lucide-react';
 import { SectionLabel, GhostNumber, SectionHeading, BlueCard, CtaBanner, StarRating } from '../components/UI';
+import Seo from '../components/Seo';
 
 const services = [
   { icon: <Wrench size={28} />, title: 'Slab Foundation Repair', description: 'Precision leveling and stabilization for concrete slab foundations using industry-leading drilled pier methods.', to: '/foundation-repair' },
@@ -52,7 +53,11 @@ const blogPosts = [
 export default function Home() {
   return (
     <>
-      <title>Premier Foundation Repair of Baton Rouge | Free Estimates | (225) 435-8289</title>
+      <Seo
+        title="Premier Foundation Repair of Baton Rouge | Free Estimates"
+        description="Foundation repair, pier and beam leveling, and yard drainage in Baton Rouge, LA. Free estimates, licensed and insured, lifetime transferable warranty."
+        bareTitle
+      />
 
       {/* HERO */}
       <section

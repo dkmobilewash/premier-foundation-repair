@@ -1,10 +1,14 @@
 import { CheckCircle, AlertTriangle, Info } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 export default function PierAndBeam() {
   return (
     <>
-      <title>Pier & Beam Foundation Repair Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Pier and Beam Foundation Repair in Baton Rouge"
+        description="Pier and beam repair for raised Baton Rouge homes: new piers, beam and joist replacement, moisture barriers, and crawl space ventilation. Free estimates."
+      />
       <PageHero
         title="PIER & BEAM FOUNDATION REPAIR"
         subtitle="Expert raised foundation repair for older Louisiana homes — permanent solutions with industry-leading warranty."

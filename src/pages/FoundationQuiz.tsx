@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, AlertTriangle, XCircle, ChevronRight } from 'lucide-react';
+import Seo from '../components/Seo';
 
 const questions = [
   'Do you see cracks in your interior walls or ceilings?',
@@ -59,7 +60,10 @@ export default function FoundationQuiz() {
 
   return (
     <>
-      <title>Foundation Damage Quiz | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Foundation Damage Quiz"
+        description="Answer a few questions about cracks, sticking doors, and sloping floors to gauge whether your Baton Rouge home needs a professional foundation assessment."
+      />
 
       <section className="min-h-screen bg-charcoal py-16 px-4 flex flex-col items-center justify-start">
         <div className="w-full max-w-2xl">

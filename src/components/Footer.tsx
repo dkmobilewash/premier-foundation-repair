@@ -23,6 +23,8 @@ const areaLinks = [
 ];
 
 const resourceLinks = [
+  { label: 'About Us', to: '/about' },
+  { label: 'Contact', to: '/contact' },
   { label: 'Our Process', to: '/our-process' },
   { label: 'Warranty', to: '/warranty' },
   { label: 'Financing', to: '/financing' },

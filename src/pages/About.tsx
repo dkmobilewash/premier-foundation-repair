@@ -1,5 +1,6 @@
 import { CheckCircle, Award, Users, Shield, Heart } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, CtaBanner, StarRating } from '../components/UI';
+import Seo from '../components/Seo';
 
 const values = [
   { icon: <Award size={28} />, title: 'Precision', desc: 'Every repair is engineered for Louisiana\'s specific soil conditions — no cookie-cutter solutions.' },
@@ -19,7 +20,10 @@ const testimonials = [
 export default function About() {
   return (
     <>
-      <title>About Premier Foundation Repair of Baton Rouge | Local Foundation Experts</title>
+      <Seo
+        title="About Premier Foundation Repair of Baton Rouge"
+        description="Locally owned foundation repair contractor serving Greater Baton Rouge with decades of combined experience, licensed crews, and a lifetime warranty."
+      />
       <PageHero
         title="ABOUT PREMIER FOUNDATION REPAIR"
         subtitle="Locally owned and operated. Serving Greater Baton Rouge for over 40 years."

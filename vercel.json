@@ -1,3 +1,15 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/stay-home-during-repair",
+      "destination": "/live-in-house-during-foundation-repair",
+      "permanent": true
+    },
+    {
+      "source": "/foundation-repair-cost-louisiana",
+      "destination": "/average-cost-foundation-repair-baton-rouge",
+      "permanent": true
+    }
+  ]
 }

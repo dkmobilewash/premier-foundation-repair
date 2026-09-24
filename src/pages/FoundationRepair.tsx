@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Wrench, Layers, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, BlueCard, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 const signs = [
   { icon: <AlertTriangle size={24} />, title: 'Cracks in Walls or Ceilings', desc: 'Diagonal cracks at door and window corners are a classic sign of foundation movement.' },
@@ -14,7 +15,10 @@ const signs = [
 export default function FoundationRepair() {
   return (
     <>
-      <title>Slab Foundation Repair Baton Rouge | Premier Foundation Repair | (225) 435-8289</title>
+      <Seo
+        title="Slab Foundation Repair in Baton Rouge, LA"
+        description="Permanent slab foundation repair in Baton Rouge using the drilled pier method, engineered for Louisiana's clay soil and backed by a lifetime warranty."
+      />
       <PageHero
         title="SLAB FOUNDATION REPAIR IN BATON ROUGE"
         subtitle="Louisiana's expanding clay soils demand precision engineering. We deliver permanent solutions with a lifetime warranty."

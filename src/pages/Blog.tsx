@@ -1,71 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { PageHero } from '../components/UI';
+import Seo from '../components/Seo';
 
 export const blogPosts = [
-  {
-    slug: 'stay-home-during-repair',
-    date: 'May 12, 2025',
-    category: 'Foundation Repair',
-    title: 'Can I Stay in My Home During Foundation Repair?',
-    excerpt: 'Most homeowners can remain in their homes throughout the repair process. Learn what to expect during each phase of foundation repair and what to plan for.',
-    image: 'https://media.istockphoto.com/id/1406593513/photo/close-up-of-demolition-hammer-with-dust-and-sparks-and-broken-concrete-pieces.jpg?s=612x612&w=0&k=20&c=VvxWIkXt1UzCiJY5fAypVClhwSpG5TCuU-wYEyyJ44c=',
-    body: `Foundation repair can sound disruptive, but for most homes undergoing slab foundation repair using the drilled pier method, you can remain in your home throughout the process.
-
-**What to expect during the repair:**
-
-Work is performed entirely from outside your home. Our crew will excavate around the foundation perimeter at pier locations, drill the holes, pour concrete, and then use hydraulic equipment to carefully raise your foundation. You may hear drilling noise and feel some slight vibration, but the interior of your home remains largely undisturbed.
-
-**Exceptions:**
-In some cases — particularly with severe settling that has caused significant floor slope — we may need to briefly access the interior to monitor elevation during lifting. Your estimator will discuss this during your free assessment.
-
-**How long will it take?**
-Most residential slab foundation repairs are completed in 1–3 days. You'll be able to use your home normally in the evenings when work stops.
-
-**Practical tips:**
-- Clear small items off walls and shelves as a precaution
-- Keep pets inside or away from the work area
-- Park vehicles away from the work zone
-- Expect some temporary yard disruption where excavation occurs
-
-If you have specific concerns about staying home during your repair, let us know during your free estimate consultation.`,
-  },
-  {
-    slug: 'foundation-repair-cost-louisiana',
-    date: 'Apr 28, 2025',
-    category: 'Pricing',
-    title: 'How Much Does Foundation Repair Cost in Louisiana?',
-    excerpt: 'Foundation repair costs in Louisiana vary widely based on severity, method, and number of piers required. Get an honest breakdown of what affects the price.',
-    image: 'https://media.istockphoto.com/id/1397739479/photo/hispanic-men-working-on-a-new-concrete-driveway.jpg?s=612x612&w=0&k=20&c=CkvVFzKjCNnbAi5lyNUf8OjxHwR6dACp-BwjQRVI3E0=',
-    body: `One of the most common questions we receive is: "How much does foundation repair cost?" The honest answer is that it varies considerably — but here's a realistic breakdown for Louisiana homeowners.
-
-**Factors that affect foundation repair cost:**
-
-**1. Number of piers required**
-This is the biggest driver of cost. A small home with minor settling may need 6–8 piers, while a larger home with significant movement might need 20+. Each pier adds to the total.
-
-**2. Soil conditions**
-In Baton Rouge's expansive clay soils, piers need to be drilled deeper to reach stable soil. Deeper drilling means more time and material.
-
-**3. Access and obstructions**
-Landscaping, HVAC equipment, decks, and fences near the foundation can increase labor time.
-
-**4. Severity of damage**
-More severe settling requires more careful lifting and longer installation time.
-
-**Typical cost ranges (2025):**
-- Minor repair (6–10 piers): $3,000–$6,000
-- Moderate repair (10–18 piers): $6,000–$12,000
-- Major repair (18+ piers): $12,000–$25,000+
-
-**Why getting multiple quotes isn't always the best strategy:**
-A cheap quote often means a cheap method. Pressed concrete piles — while less expensive — have a significantly higher failure rate in Louisiana's clay soils. Always ask what method is being used and why.
-
-**The real cost of waiting:**
-Foundation problems don't get cheaper with time. A $4,000 repair today can become a $15,000 repair in two years if the movement continues unchecked.
-
-The best way to know your actual cost is to schedule a free estimate. There's no obligation and no pressure.`,
-  },
   {
     slug: 'small-cracks-foundation',
     date: 'Apr 5, 2025',
@@ -298,6 +236,7 @@ We work with real estate agents across Greater Baton Rouge to provide fast, hone
   },
   {
     slug: 'average-cost-foundation-repair-baton-rouge',
+    updated: '2026-09-22',
     date: 'Jun 17, 2025',
     category: 'Pricing',
     title: 'What Is the Average Cost for Foundation Repair in Baton Rouge?',
@@ -308,6 +247,8 @@ We work with real estate agents across Greater Baton Rouge to provide fast, hone
 **The national average vs. the Baton Rouge reality**
 
 Nationally, foundation repair averages between $4,000 and $12,000. But national averages do not mean much in South Louisiana, where our expansive Beaumont clay soil makes every job unique. Here is what we actually see in the Greater Baton Rouge area.
+
+The same ranges hold across the region. The Beaumont clay belt runs well past East Baton Rouge Parish, so homeowners in Ascension, Livingston, Iberville and West Baton Rouge parishes are dealing with the same soil and see the same numbers for the same work.
 
 **Minor repairs: $3,000 to $6,000**
 
@@ -346,12 +287,19 @@ We offer financing options including same-as-cash promotional periods and low mo
 
 We have seen Baton Rouge homeowners choose the cheapest quote only to need a second repair within five years. A $4,000 pressed pile repair that fails becomes a $4,000 sunk cost plus the $8,000 drilled pier repair you should have gotten in the first place. Total: $12,000 for a $8,000 fix.
 
+When you compare quotes, the number to compare is not the price — it is the method. Always ask which method a contractor is using and why they chose it for your soil. A cheap quote usually means a cheap method, and a contractor who cannot explain that choice clearly is guessing.
+
+**The real cost of waiting**
+
+Foundation problems do not get cheaper with time. A $4,000 repair today can become a $15,000 repair in two years if the movement continues unchecked. The clay does not stop moving because you are not ready to deal with it — every wet-dry cycle shifts the foundation a little further, and each additional inch of settlement means more piers, more lifting and more time on site.
+
 **How to get your actual number**
 
 Every home is different, and the only way to know your real cost is a free on-site estimate. We will inspect your foundation, explain what we find, and give you a written quote with no obligation. Call (225) 435-8289 or fill out our free estimate form today.`,
   },
   {
     slug: 'live-in-house-during-foundation-repair',
+    updated: '2026-09-22',
     date: 'Jun 24, 2025',
     category: 'Foundation Tips',
     title: 'Can You Live in a House While Foundation Repair Is Done?',
@@ -377,6 +325,8 @@ What you will NOT experience:
 - Dust or debris inside
 - Your water or power being shut off
 - Any need to vacate rooms
+
+Work stops in the late afternoon. Evenings and nights are your own — once the crew leaves for the day you can use your home completely normally, including the rooms above the sections we worked on.
 
 **What day two looks like (if needed)**
 
@@ -411,7 +361,10 @@ Every home and every family is different. If you have questions about your speci
 export default function Blog() {
   return (
     <>
-      <title>Foundation Repair Resources & Blog | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Foundation Repair Blog and Resources"
+        description="Straight answers on foundation repair cost, insurance coverage, crack severity, and what to expect during repair, written for Baton Rouge homeowners."
+      />
       <PageHero title="FOUNDATION REPAIR RESOURCES" subtitle="Expert advice for Baton Rouge homeowners navigating foundation repair, drainage, and home maintenance." cta={false} />
 
       <section className="bg-[#E8ECF0] py-20">

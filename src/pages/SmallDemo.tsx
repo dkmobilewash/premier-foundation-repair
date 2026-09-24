@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Wrench, Truck } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 export default function SmallDemo() {
   return (
     <>
-      <title>Small Demolition Services Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Small Demolition Services in Baton Rouge"
+        description="Small demolition in Baton Rouge: concrete driveways, patios, slabs, sheds, and interior tear-outs. Licensed, insured, and cleaned up when we leave."
+      />
       <PageHero
         title="SMALL DEMOLITION SERVICES — BATON ROUGE"
         subtitle="Concrete and asphalt demolition, haul-away, and under-house debris clearing for residential properties."

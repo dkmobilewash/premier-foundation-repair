@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Droplets, ArrowRight } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, BlueCard, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 const services = [
   { icon: <Droplets size={28} />, title: 'Catch Basins', description: 'Underground collection points that gather surface runoff and direct it safely away from your foundation.', to: '/drainage/catch-basins' },
@@ -12,7 +13,10 @@ const services = [
 export default function Drainage() {
   return (
     <>
-      <title>Yard Drainage Solutions Baton Rouge | Premier Foundation Repair | (225) 435-8289</title>
+      <Seo
+        title="Yard Drainage Solutions in Baton Rouge"
+        description="French drains, catch basins, channel drains, and sump pumps that move water away from your Baton Rouge foundation before it causes settling. Free estimates."
+      />
       <PageHero
         title="YARD DRAINAGE SOLUTIONS IN BATON ROUGE"
         subtitle="Louisiana's relentless rainfall demands professional drainage. Protect your foundation before water causes permanent damage."

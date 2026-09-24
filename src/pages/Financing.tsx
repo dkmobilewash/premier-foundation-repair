@@ -1,6 +1,7 @@
 import { ArrowRight, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PageHero, SectionLabel, SectionHeading, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 const options = [
   {
@@ -23,7 +24,10 @@ const options = [
 export default function Financing() {
   return (
     <>
-      <title>Foundation Repair Financing Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Foundation Repair Financing in Baton Rouge"
+        description="Flexible payment options for Baton Rouge foundation repair. We partner with financing companies so qualified homeowners don't have to delay needed repairs."
+      />
       <PageHero title="FINANCING OPTIONS" subtitle="Don't delay critical repairs. Flexible financing makes protecting your home affordable." cta={false} />
 
       <section className="bg-charcoal py-20">

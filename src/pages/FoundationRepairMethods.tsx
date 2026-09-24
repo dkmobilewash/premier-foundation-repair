@@ -1,5 +1,6 @@
 import { CheckCircle } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 const methods = [
   {
@@ -37,7 +38,10 @@ const methods = [
 export default function FoundationRepairMethods() {
   return (
     <>
-      <title>Foundation Repair Methods Compared | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Foundation Repair Methods Compared"
+        description="Drilled piers, pressed pilings, and slab jacking compared side by side: how each method works, what it costs, and which one suits Louisiana clay soil."
+      />
       <PageHero
         title="FOUNDATION REPAIR METHODS COMPARED"
         subtitle="Understand the difference between drilled piers, pressed piles, and helical piers before you commit to a repair."
