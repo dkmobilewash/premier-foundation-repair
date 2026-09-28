@@ -374,7 +374,7 @@ export default function Blog() {
             <div className="md:col-span-2 space-y-8">
               {blogPosts.map((p) => (
                 <div key={p.slug} className="bg-white rounded overflow-hidden border-t-4 border-royal shadow-sm">
-                  <img src={p.image} alt={p.title} className="w-full h-52 object-cover" />
+                  <img loading="lazy" decoding="async" src={p.image} alt={p.title} className="w-full h-52 object-cover" />
                   <div className="p-6">
                     <div className="flex items-center gap-3 text-xs text-steel font-subheading mb-2">
                       <Calendar size={12} />
@@ -395,7 +395,7 @@ export default function Blog() {
             <div className="space-y-6">
               {/* Recent posts widget */}
               <div className="bg-charcoal rounded-lg p-5">
-                <h4 className="font-headline text-lg text-white tracking-wider mb-4">RECENT POSTS</h4>
+                <h3 className="font-headline text-lg text-white tracking-wider mb-4">RECENT POSTS</h3>
                 <div className="space-y-3">
                   {blogPosts.map((p) => (
                     <Link key={p.slug} to={`/${p.slug}`} className="block text-white/70 hover:text-royal text-sm font-subheading transition-colors leading-snug">
@@ -407,7 +407,7 @@ export default function Blog() {
 
               {/* Categories */}
               <div className="bg-charcoal rounded-lg p-5">
-                <h4 className="font-headline text-lg text-white tracking-wider mb-4">CATEGORIES</h4>
+                <h3 className="font-headline text-lg text-white tracking-wider mb-4">CATEGORIES</h3>
                 <div className="space-y-2">
                   {['Foundation Repair', 'Drainage', 'Pier & Beam', 'Pricing', 'Foundation Tips', 'Insurance', 'Real Estate'].map((c) => (
                     <div key={c} className="flex items-center justify-between text-sm">
@@ -420,7 +420,7 @@ export default function Blog() {
 
               {/* CTA widget */}
               <div className="bg-royal rounded-lg p-6 text-center">
-                <h4 className="font-headline text-xl text-white tracking-wider mb-2">GET A FREE ESTIMATE</h4>
+                <h3 className="font-headline text-xl text-white tracking-wider mb-2">GET A FREE ESTIMATE</h3>
                 <p className="text-white/80 text-xs font-subheading mb-4">No obligation. Fast response. Local experts.</p>
                 <Link to="/free-estimate" className="bg-white text-royal px-5 py-2.5 rounded font-subheading font-semibold text-sm hover:bg-white/90 transition-colors inline-flex items-center gap-2">
                   Get Started <ArrowRight size={14} />

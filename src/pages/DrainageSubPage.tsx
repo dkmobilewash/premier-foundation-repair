@@ -29,7 +29,7 @@ export default function DrainageSubPage({
       <section className="bg-charcoal py-16">
         <div className="max-w-4xl mx-auto px-4">
           {image && (
-            <img
+            <img loading="lazy" decoding="async"
               src={image}
               alt={title}
               className="w-full h-64 object-cover rounded-lg mb-8"
@@ -50,7 +50,7 @@ export default function DrainageSubPage({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {howItWorks.map((h, i) => (
               <div key={i} className="card-blue-border rounded-r p-5">
-                <h4 className="font-subheading font-semibold text-white mb-2">{h.step}</h4>
+                <h3 className="font-subheading font-semibold text-white mb-2">{h.step}</h3>
                 <p className="text-white/60 text-sm font-subheading">{h.desc}</p>
               </div>
             ))}
@@ -92,7 +92,7 @@ export default function DrainageSubPage({
                   {s.n}
                 </div>
                 <div>
-                  <h4 className="font-subheading font-semibold text-white mb-1">{s.title}</h4>
+                  <h3 className="font-subheading font-semibold text-white mb-1">{s.title}</h3>
                   <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function DrainageSubPage({
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="relative rounded-lg overflow-hidden h-48">
-              <img
+              <img loading="lazy" decoding="async"
                 src="https://media.istockphoto.com/id/2167164749/photo/repairing-old-district-heating-pipeline-in-concrete-trench.jpg?s=612x612&w=0&k=20&c=D3s7SoO3GYco_mVPSUDzRdJ2erbwupXj4puyc0vTAG0="
                 alt="Before drainage installation"
                 className="w-full h-full object-cover opacity-80"
@@ -118,7 +118,7 @@ export default function DrainageSubPage({
               <span className="absolute bottom-3 left-3 bg-charcoal/80 text-white font-headline text-sm px-3 py-1 rounded tracking-wider">BEFORE</span>
             </div>
             <div className="relative rounded-lg overflow-hidden h-48">
-              <img
+              <img loading="lazy" decoding="async"
                 src="https://media.istockphoto.com/id/2197902243/photo/water-management-system-takes-shape-underground-professional-sump-pump-and-drainage.jpg?s=612x612&w=0&k=20&c=Ocl9mEVYUIymqJLGBPD7pFQgv0iiqcD__O20rQ5MxFc="
                 alt="After drainage installation"
                 className="w-full h-full object-cover opacity-90"

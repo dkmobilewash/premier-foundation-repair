@@ -19,6 +19,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- Loaded here rather than via @import in index.css: an @import is only
+         discovered after the stylesheet itself downloads and parses, which puts
+         the fonts behind an extra round trip and risks a layout shift. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Premier Foundation Repair of Baton Rouge" />
@@ -69,6 +75,7 @@
           "latitude": 30.4586597,
           "longitude": -91.0114244
         },
+        "priceRange": "$$$",
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",

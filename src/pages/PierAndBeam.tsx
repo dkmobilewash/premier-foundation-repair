@@ -26,7 +26,7 @@ export default function PierAndBeam() {
                 <p>This design offers excellent ventilation and easy access to plumbing and electrical systems. However, the wood components are vulnerable to moisture damage, insect infestation, and settling piers over time.</p>
               </div>
             </div>
-            <img
+            <img loading="lazy" decoding="async"
               src="https://media.istockphoto.com/id/1638300486/photo/construction-site-insulation-of-a-buildings-foundation.jpg?s=612x612&w=0&k=20&c=oocJLHF_Dj-2alBVQXyUM0mBK2SsO6hFeyqLM8uDa3g="
               alt="Foundation crawl space"
               className="rounded-lg w-full h-64 object-cover"
@@ -53,7 +53,7 @@ export default function PierAndBeam() {
               <div key={s.title} className="flex gap-4 bg-charcoal border-l-4 border-royal rounded-r p-5">
                 <AlertTriangle size={22} className="text-royal shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-subheading font-semibold text-white mb-1">{s.title}</h4>
+                  <h3 className="font-subheading font-semibold text-white mb-1">{s.title}</h3>
                   <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export default function PierAndBeam() {
             ].map((s) => (
               <div key={s.title} className="card-blue-border rounded-r p-5">
                 <CheckCircle size={20} className="text-royal mb-3" />
-                <h4 className="font-headline text-lg text-white tracking-wider mb-2">{s.title}</h4>
+                <h3 className="font-headline text-lg text-white tracking-wider mb-2">{s.title}</h3>
                 <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
               </div>
             ))}
@@ -92,7 +92,7 @@ export default function PierAndBeam() {
       {/* Clearance notice */}
       <section className="bg-navy py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <img
+          <img loading="lazy" decoding="async"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZC822WS6TQqbmzIX8ggp9b8Y98RNeC5AR2g&s"
             alt="Foundation pier installation work"
             className="w-full h-52 object-cover rounded-lg mb-6"
@@ -100,7 +100,7 @@ export default function PierAndBeam() {
           <div className="bg-royal/10 border border-royal rounded-lg p-6 flex gap-4">
             <Info size={28} className="text-royal shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-subheading font-semibold text-white mb-2">Clearance Requirement Notice</h4>
+              <h3 className="font-subheading font-semibold text-white mb-2">Clearance Requirement Notice</h3>
               <p className="text-white/70 font-subheading text-sm">
                 <strong className="text-white">We require a minimum of 16 inches from the ground to the floor joist</strong> to perform pier and beam foundation work. Please mention this when scheduling your free estimate so we can assess your home's crawl space clearance.
               </p>

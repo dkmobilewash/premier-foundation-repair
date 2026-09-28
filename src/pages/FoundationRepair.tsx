@@ -29,12 +29,14 @@ export default function FoundationRepair() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <BlueCard
+              as="h2"
               icon={<Wrench size={28} />}
               title="Slab Foundation Repair"
               description="Concrete slab foundation leveling and stabilization using the drilled pier method. Permanent correction for settling, cracking, and water intrusion issues common in Louisiana's clay-rich soils."
               linkTo="/foundation-repair"
             />
             <BlueCard
+              as="h2"
               icon={<Layers size={28} />}
               title="Pier & Beam Repair"
               description="Raised home foundation repair for older construction — new pier installation, beam and joist replacement, moisture barriers, and vent installation with a 16-inch minimum clearance requirement."
@@ -59,7 +61,7 @@ export default function FoundationRepair() {
               <p>Standard pressed pile repairs can fail in Louisiana's soils. That's why our structural engineers recommend the <strong className="text-white">drilled pier method</strong>, which anchors into stable soil or bedrock far below the active clay layer.</p>
             </div>
             <div className="space-y-4">
-              <img
+              <img loading="lazy" decoding="async"
                 src="https://media.istockphoto.com/id/1818587262/photo/a-house-foundation-that-cracks-due-to-unstable-soil-conditions.jpg?s=612x612&w=0&k=20&c=uGR1G0lqF0SlFI1uroZfunkREZMdbdh3nDe8FHbAIGo="
                 alt="House foundation cracks from unstable soil"
                 className="w-full h-48 object-cover rounded-lg"
@@ -99,7 +101,7 @@ export default function FoundationRepair() {
             ].map((s) => (
               <div key={s.n} className="card-blue-border rounded-r p-5">
                 <div className="font-headline text-4xl text-royal/40 tracking-wider mb-2">{s.n}</div>
-                <h4 className="font-headline text-lg text-white tracking-wider mb-2">{s.title}</h4>
+                <h3 className="font-headline text-lg text-white tracking-wider mb-2">{s.title}</h3>
                 <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
               </div>
             ))}
@@ -120,7 +122,7 @@ export default function FoundationRepair() {
               <div key={s.title} className="bg-charcoal border-l-4 border-royal rounded-r p-5 flex gap-3">
                 <div className="text-royal shrink-0 mt-0.5">{s.icon}</div>
                 <div>
-                  <h4 className="font-subheading font-semibold text-white mb-1">{s.title}</h4>
+                  <h3 className="font-subheading font-semibold text-white mb-1">{s.title}</h3>
                   <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
                 </div>
               </div>

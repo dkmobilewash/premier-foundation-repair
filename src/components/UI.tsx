@@ -36,16 +36,19 @@ export function BlueCard({
   title,
   description,
   linkTo,
+  as: Heading = 'h3',
 }: {
   icon: ReactNode;
   title: string;
   description: string;
   linkTo?: string;
+  /** Heading level for the card title; use h2 where the card is not nested under one. */
+  as?: 'h2' | 'h3';
 }) {
   return (
     <div className="card-blue-border rounded-r p-6 flex flex-col gap-3 h-full">
       <div className="text-royal">{icon}</div>
-      <h3 className="font-headline text-xl tracking-wider text-white">{title}</h3>
+      <Heading className="font-headline text-xl tracking-wider text-white">{title}</Heading>
       <p className="text-white/70 text-sm font-subheading leading-relaxed flex-1">{description}</p>
       {linkTo && (
         <Link to={linkTo} className="text-royal text-sm font-subheading font-semibold flex items-center gap-1 hover:gap-2 transition-all">

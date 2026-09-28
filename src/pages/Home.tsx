@@ -155,7 +155,7 @@ export default function Home() {
                     <CheckCircle size={20} />
                   </div>
                   <div>
-                    <h4 className="font-subheading font-semibold text-white">{f.title}</h4>
+                    <h3 className="font-subheading font-semibold text-white">{f.title}</h3>
                     <p className="text-white/60 text-sm font-subheading">{f.desc}</p>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ export default function Home() {
                 <div className="w-16 h-16 rounded-full bg-royal flex items-center justify-center font-headline text-2xl text-white mx-auto mb-4">
                   {s.n}
                 </div>
-                <h4 className="font-headline text-xl text-charcoal tracking-wider mb-2">{s.title}</h4>
+                <h3 className="font-headline text-xl text-charcoal tracking-wider mb-2">{s.title}</h3>
                 <p className="text-steel text-sm font-subheading">{s.desc}</p>
               </div>
             ))}
@@ -283,14 +283,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {blogPosts.map((p) => (
               <div key={p.slug} className="bg-white rounded overflow-hidden border-t-4 border-royal shadow-sm">
-                <img
+                <img loading="lazy" decoding="async"
                   src={p.image}
                   alt={p.title}
                   className="w-full h-44 object-cover"
                 />
                 <div className="p-5">
                   <span className="text-xs text-steel font-subheading">{p.date}</span>
-                  <h4 className="font-subheading font-semibold text-charcoal mt-1 mb-2">{p.title}</h4>
+                  <h3 className="font-subheading font-semibold text-charcoal mt-1 mb-2">{p.title}</h3>
                   <p className="text-steel text-sm font-subheading mb-4">{p.excerpt}</p>
                   <Link to={`/${p.slug}`} className="text-royal text-sm font-subheading font-semibold flex items-center gap-1 hover:gap-2 transition-all">
                     Read More <ArrowRight size={14} />

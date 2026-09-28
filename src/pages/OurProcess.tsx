@@ -70,14 +70,14 @@ export default function OurProcess() {
                 </div>
                 <div className="space-y-4">
                   {stepImages[s.n] && (
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={stepImages[s.n]}
                       alt={s.title}
                       className="w-full h-40 object-cover rounded-lg mb-2"
                     />
                   )}
                   <div className="bg-charcoal/50 border border-steel/20 rounded-lg p-6 space-y-3">
-                    <h4 className="font-subheading font-semibold text-white mb-4">What's Included:</h4>
+                    <h3 className="font-subheading font-semibold text-white mb-4">What's Included:</h3>
                     {s.detail.map((d) => (
                       <div key={d} className="flex gap-3 items-center">
                         <CheckCircle size={18} className="text-royal shrink-0" />

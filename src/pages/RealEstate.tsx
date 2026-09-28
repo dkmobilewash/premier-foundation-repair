@@ -42,7 +42,7 @@ export default function RealEstate() {
             ].map((c) => (
               <div key={c.title} className="card-blue-border rounded-r p-6">
                 <div className="text-royal mb-3">{c.icon}</div>
-                <h4 className="font-headline text-lg text-white tracking-wider mb-2">{c.title}</h4>
+                <h3 className="font-headline text-lg text-white tracking-wider mb-2">{c.title}</h3>
                 <p className="text-white/60 text-sm font-subheading">{c.desc}</p>
               </div>
             ))}
@@ -70,7 +70,7 @@ export default function RealEstate() {
                   {s.n}
                 </div>
                 <div>
-                  <h4 className="font-subheading font-semibold text-white mb-1">{s.title}</h4>
+                  <h3 className="font-subheading font-semibold text-white mb-1">{s.title}</h3>
                   <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
                 </div>
               </div>

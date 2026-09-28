@@ -185,7 +185,7 @@ export default function FreeEstimate({
                         {s.n}
                       </div>
                       <div>
-                        <h4 className="font-subheading font-semibold text-white mb-0.5">{s.title}</h4>
+                        <h3 className="font-subheading font-semibold text-white mb-0.5">{s.title}</h3>
                         <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
                       </div>
                     </div>

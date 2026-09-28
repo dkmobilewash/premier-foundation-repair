@@ -129,7 +129,7 @@ export default function FoundationRepairMethods() {
               <p>Every job we complete with drilled piers qualifies for our <strong className="text-white">lifetime transferable warranty</strong> — something we can only offer because we're confident in the method's permanence.</p>
             </div>
             <div className="rounded-lg overflow-hidden">
-              <img
+              <img loading="lazy" decoding="async"
                 src="https://media.istockphoto.com/id/2275046549/photo/repair-of-an-old-foundation-formwork-from-osb-sheets-and-wooden-boards-around-the-old.jpg?s=612x612&w=0&k=20&c=y-LpekjSQsIw6MMDPcTZW5U654uLLniI0B5uFbXUBhI="
                 alt="Foundation repair formwork installation"
                 className="w-full h-64 object-cover"

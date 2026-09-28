@@ -34,7 +34,7 @@ export default function SmallDemo() {
             ].map((s) => (
               <div key={s.title} className="card-blue-border rounded-r p-5">
                 <Wrench size={20} className="text-royal mb-3" />
-                <h4 className="font-headline text-lg text-white tracking-wider mb-2">{s.title}</h4>
+                <h3 className="font-headline text-lg text-white tracking-wider mb-2">{s.title}</h3>
                 <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
               </div>
             ))}
@@ -47,7 +47,7 @@ export default function SmallDemo() {
         <GhostNumber n="01" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="bg-navy border border-royal/40 rounded-lg overflow-hidden flex flex-col md:flex-row gap-0">
-            <img
+            <img loading="lazy" decoding="async"
               src="https://media.istockphoto.com/id/1406593513/photo/close-up-of-demolition-hammer-with-dust-and-sparks-and-broken-concrete-pieces.jpg?s=612x612&w=0&k=20&c=VvxWIkXt1UzCiJY5fAypVClhwSpG5TCuU-wYEyyJ44c="
               alt="Demolition hammer in action"
               className="w-full md:w-56 h-48 md:h-auto object-cover shrink-0"
@@ -95,7 +95,7 @@ export default function SmallDemo() {
                   <span className="text-royal text-xs font-bold">✓</span>
                 </div>
                 <div>
-                  <h4 className="font-subheading font-semibold text-white text-sm">{s.title}</h4>
+                  <h3 className="font-subheading font-semibold text-white text-sm">{s.title}</h3>
                   <p className="text-white/60 text-xs font-subheading">{s.desc}</p>
                 </div>
               </div>

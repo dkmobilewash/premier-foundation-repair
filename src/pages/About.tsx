@@ -43,7 +43,7 @@ export default function About() {
                 <p>As a locally owned business, we don't answer to national shareholders. We answer to our neighbors — and that makes all the difference in how we approach every job.</p>
               </div>
             </div>
-            <img
+            <img loading="lazy" decoding="async"
               src="https://media.istockphoto.com/id/1421081631/photo/basement-waterproofing-worker-sealing-cracks-in-basement-floor-to-prevent-flooding-and-mold.jpg?s=612x612&w=0&k=20&c=6j3wi3PgzhdOqsKvUdoFi6RYw6KzGdOmKZjWsZfT98M="
               alt="Foundation repair crew"
               className="rounded-lg w-full h-64 object-cover"
@@ -64,7 +64,7 @@ export default function About() {
             {values.map((v) => (
               <div key={v.title} className="card-blue-border rounded-r p-6">
                 <div className="text-royal mb-3">{v.icon}</div>
-                <h4 className="font-headline text-xl text-white tracking-wider mb-2">{v.title}</h4>
+                <h3 className="font-headline text-xl text-white tracking-wider mb-2">{v.title}</h3>
                 <p className="text-white/60 text-sm font-subheading">{v.desc}</p>
               </div>
             ))}
