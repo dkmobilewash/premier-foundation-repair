@@ -1,0 +1,11 @@
+{
+  "_comment": "Licence record. A URL belongs here ONLY if its licence permits self-hosting. Pexels does (free commercial use, modification allowed, no attribution required). iStock preview URLs and Google image thumbnails do NOT — do not add them.",
+  "images": [
+    { "name": "blog-worth-fixing",      "license": "Pexels", "url": "https://images.pexels.com/photos/14535071/pexels-photo-14535071.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
+    { "name": "blog-average-cost",      "license": "Pexels", "url": "https://images.pexels.com/photos/19408681/pexels-photo-19408681.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
+    { "name": "blog-insurance",         "license": "Pexels", "url": "https://images.pexels.com/photos/7735624/pexels-photo-7735624.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
+    { "name": "blog-replace-foundation","license": "Pexels", "url": "https://images.pexels.com/photos/15458299/pexels-photo-15458299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
+    { "name": "blog-walk-away",         "license": "Pexels", "url": "https://images.pexels.com/photos/7937763/pexels-photo-7937763.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
+    { "name": "blog-live-in-house",     "license": "Pexels", "url": "https://images.pexels.com/photos/5799087/pexels-photo-5799087.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" }
+  ]
+}
