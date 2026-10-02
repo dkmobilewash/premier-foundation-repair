@@ -33,16 +33,19 @@ mapping as a hypothesis until it is. Word counts are from `seo-report.json`.
 
 ## Service areas — all thin
 
-Ten routes, one template, a swapped city name, 212–227 words each:
-`/baton-rouge` `/central` `/denham-springs` `/gonzales` `/hammond`
-`/pine-grove` `/plaquemine` `/port-allen` `/prairieville` `/zachary`
+Nine routes, one template, a swapped city name, 212–227 words each:
+`/central` `/denham-springs` `/gonzales` `/hammond` `/pine-grove`
+`/plaquemine` `/port-allen` `/prairieville` `/zachary`
 
 Each targets `foundation repair <city> la`. As written they are close to
 doorway pages; see `guardrails.md`. Fixing them means local specifics —
 neighbourhoods, soil conditions, jobs actually done there — not more of them.
 
-`/baton-rouge` additionally overlaps the homepage, which already targets the
-same city. Decide which one owns it.
+`/baton-rouge` was retired: it targeted the same query as the homepage with a
+template and a 40-word intro, so it was dropped and 308'd to `/`. The homepage
+owns "foundation repair baton rouge" outright now, and the parish mention the
+retired page carried was folded into its hero copy. Nine city pages still link
+"Baton Rouge" to `/`, so the anchor text keeps working for that query.
 
 ## Trust and conversion pages
 
@@ -75,6 +78,7 @@ survivor so it keeps whatever it had earned.
 | Retired | Merged into | Survivor now |
 | --- | --- | --- |
 | `/stay-home-during-repair` (429w) | `/live-in-house-during-foundation-repair` | 981w |
+| `/baton-rouge` (223w) | `/` — the homepage already owned the query | 683w |
 | `/foundation-repair-cost-louisiana` (465w) | `/average-cost-foundation-repair-baton-rouge` | 1027w |
 
 The cost page now carries the statewide framing the retired page owned, so it

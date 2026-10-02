@@ -10,6 +10,11 @@
       "source": "/foundation-repair-cost-louisiana",
       "destination": "/average-cost-foundation-repair-baton-rouge",
       "permanent": true
+    },
+    {
+      "source": "/baton-rouge",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

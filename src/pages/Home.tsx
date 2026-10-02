@@ -26,7 +26,6 @@ const processSteps = [
 ];
 
 const areas = [
-  { label: 'Baton Rouge', to: '/baton-rouge' },
   { label: 'Central', to: '/central' },
   { label: 'Denham Springs', to: '/denham-springs' },
   { label: 'Gonzales', to: '/gonzales' },
@@ -87,7 +86,7 @@ export default function Home() {
           </h1>
 
           <p className="text-white/70 font-subheading text-lg md:text-xl max-w-2xl mb-10">
-            Protecting Baton Rouge homes with precision engineering and a lifetime warranty.
+            Protecting homes across East Baton Rouge Parish with precision engineering and a lifetime warranty.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
