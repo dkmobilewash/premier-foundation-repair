@@ -82,7 +82,11 @@ export default function Home() {
           <h1 className="font-headline text-6xl md:text-8xl lg:text-9xl text-white tracking-wider leading-none mb-6">
             PREMIER<br />
             <span className="text-royal">FOUNDATION</span><br />
-            REPAIR
+            {/* Smaller than the lines above: the city has to be in the h1 for the
+                query the homepage owns, but it is four times the characters. */}
+            <span className="block text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-2">
+              REPAIR OF BATON ROUGE
+            </span>
           </h1>
 
           <p className="text-white/70 font-subheading text-lg md:text-xl max-w-2xl mb-10">
