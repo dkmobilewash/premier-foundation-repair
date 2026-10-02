@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
   {
     label: 'Service Areas',
     dropdown: [
-      { label: 'Baton Rouge', to: '/baton-rouge' },
+      { label: 'Baton Rouge', to: '/' },
       { label: 'Central', to: '/central' },
       { label: 'Denham Springs', to: '/denham-springs' },
       { label: 'Gonzales', to: '/gonzales' },

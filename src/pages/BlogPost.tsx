@@ -2,6 +2,8 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import { Calendar, Tag, ArrowRight, ArrowLeft } from 'lucide-react';
 import { blogPosts } from './Blog';
 import { CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
+import { blogPostingSchema, clampDescription } from '../lib/seo';
 
 export default function BlogPost() {
   const { slug: paramSlug } = useParams<{ slug: string }>();
@@ -13,6 +15,7 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="min-h-screen bg-charcoal flex items-center justify-center">
+        <Seo title="Post Not Found" description="This blog post could not be found." noindex />
         <div className="text-center">
           <h1 className="font-headline text-4xl text-white mb-4">POST NOT FOUND</h1>
           <Link to="/blog" className="text-royal font-subheading">← Back to Blog</Link>
@@ -23,7 +26,23 @@ export default function BlogPost() {
 
   return (
     <>
-      <title>{`${post.title} | Premier Foundation Repair Baton Rouge`}</title>
+      <Seo
+        title={post.title}
+        description={clampDescription(post.excerpt)}
+        path={`/${post.slug}`}
+        image={post.image}
+        schema={blogPostingSchema(post)}
+        article={{
+          publishedTime: new Date(post.date).toISOString(),
+          modifiedTime: new Date(post.updated ?? post.date).toISOString(),
+          section: post.category,
+        }}
+        breadcrumb={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+          { name: post.title, path: `/${post.slug}` },
+        ]}
+      />
 
       {/* Hero */}
       <section className="bg-navy py-20 relative overflow-hidden" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 93%, 0 100%)' }}>
@@ -48,14 +67,14 @@ export default function BlogPost() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Main article */}
             <article className="lg:col-span-2">
-              <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-8" />
+              <img loading="lazy" decoding="async" src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-8" />
               <div
                 className="prose prose-lg max-w-none text-charcoal"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 {post.body.split('\n\n').map((para, i) => {
                   if (para.startsWith('**') && para.endsWith('**')) {
-                    return <h3 key={i} className="font-subheading font-bold text-charcoal text-lg mt-6 mb-2">{para.replace(/\*\*/g, '')}</h3>;
+                    return <h2 key={i} className="font-subheading font-bold text-charcoal text-lg mt-6 mb-2">{para.replace(/\*\*/g, '')}</h2>;
                   }
                   if (para.startsWith('- ')) {
                     const items = para.split('\n').filter(l => l.startsWith('- '));
@@ -75,7 +94,7 @@ export default function BlogPost() {
             {/* Sidebar */}
             <div className="space-y-6">
               <div className="bg-charcoal rounded-lg p-6 text-center sticky top-24">
-                <h4 className="font-headline text-xl text-white tracking-wider mb-2">GET A FREE ESTIMATE</h4>
+                <h2 className="font-headline text-xl text-white tracking-wider mb-2">GET A FREE ESTIMATE</h2>
                 <p className="text-white/60 text-xs font-subheading mb-4">Ready to fix your foundation? Get a no-obligation estimate today.</p>
                 <Link to="/free-estimate" className="bg-royal text-white px-5 py-3 rounded font-subheading font-semibold text-sm hover:bg-royal/90 transition-colors inline-flex items-center gap-2 w-full justify-center">
                   Get Started <ArrowRight size={14} />
@@ -90,13 +109,13 @@ export default function BlogPost() {
           {/* Related posts */}
           {related.length > 0 && (
             <div className="mt-16">
-              <h3 className="font-headline text-2xl text-charcoal tracking-wider mb-6">RELATED ARTICLES</h3>
+              <h2 className="font-headline text-2xl text-charcoal tracking-wider mb-6">RELATED ARTICLES</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {related.map((p) => (
                   <div key={p.slug} className="bg-white rounded overflow-hidden border-t-4 border-royal shadow-sm">
-                    <img src={p.image} alt={p.title} className="w-full h-36 object-cover" />
+                    <img loading="lazy" decoding="async" src={p.image} alt={p.title} className="w-full h-36 object-cover" />
                     <div className="p-4">
-                      <h4 className="font-subheading font-semibold text-charcoal mb-2 text-sm">{p.title}</h4>
+                      <h3 className="font-subheading font-semibold text-charcoal mb-2 text-sm">{p.title}</h3>
                       <Link to={`/${p.slug}`} className="text-royal text-xs font-subheading font-semibold flex items-center gap-1">
                         Read More <ArrowRight size={12} />
                       </Link>

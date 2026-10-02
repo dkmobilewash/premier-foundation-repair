@@ -1,10 +1,14 @@
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 export default function Warranty() {
   return (
     <>
-      <title>Foundation Repair Warranty | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Our Foundation Repair Warranty"
+        description="Slab repairs using our drilled pier method carry a lifetime transferable warranty; pier and beam work carries a 10-year limited warranty. See what is covered."
+      />
       <PageHero title="OUR WARRANTY" subtitle="Industry-leading coverage that protects your investment for the life of your home." cta={false} />
 
       <section className="bg-charcoal py-20">
@@ -15,7 +19,7 @@ export default function Warranty() {
               <div className="text-royal mb-3">
                 <CheckCircle size={32} />
               </div>
-              <h3 className="font-headline text-2xl text-white tracking-wider mb-3">LIFETIME TRANSFERABLE WARRANTY</h3>
+              <h2 className="font-headline text-2xl text-white tracking-wider mb-3">LIFETIME TRANSFERABLE WARRANTY</h2>
               <p className="text-royal font-subheading font-semibold mb-3">Slab Foundation Repair — Drilled Pier Method</p>
               <p className="text-white/70 font-subheading text-sm leading-relaxed">
                 All slab foundation repairs completed using our drilled pier method are backed by a lifetime transferable warranty. This warranty remains in effect for as long as the home stands and transfers automatically to future owners — adding measurable value at resale.
@@ -26,7 +30,7 @@ export default function Warranty() {
               <div className="text-steel mb-3">
                 <CheckCircle size={32} />
               </div>
-              <h3 className="font-headline text-2xl text-white tracking-wider mb-3">10-YEAR LIMITED WARRANTY</h3>
+              <h2 className="font-headline text-2xl text-white tracking-wider mb-3">10-YEAR LIMITED WARRANTY</h2>
               <p className="text-white/60 font-subheading font-semibold mb-3">Pier & Beam Foundation Repair</p>
               <p className="text-white/70 font-subheading text-sm leading-relaxed">
                 Pier and beam repair work is covered by our 10-year limited warranty covering defects in materials and workmanship. The warranty covers pier settling, beam failure, and moisture barrier defects.

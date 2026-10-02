@@ -1,5 +1,6 @@
 import { CheckCircle } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 const stepImages: Record<string, string> = {
   '01': 'https://media.istockphoto.com/id/1818587262/photo/a-house-foundation-that-cracks-due-to-unstable-soil-conditions.jpg?s=612x612&w=0&k=20&c=uGR1G0lqF0SlFI1uroZfunkREZMdbdh3nDe8FHbAIGo=',
@@ -38,7 +39,10 @@ const steps = [
 export default function OurProcess() {
   return (
     <>
-      <title>Our Foundation Repair Process | Premier Foundation Repair Baton Rouge</title>
+      <Seo
+        title="Our Foundation Repair Process"
+        description="What to expect from your Baton Rouge foundation repair, step by step: free assessment, written estimate, drilled pier installation, and final elevation check."
+      />
       <PageHero
         title="OUR 4-STEP PROCESS"
         subtitle="No surprises. No pressure. Just a clear, honest path to a permanent foundation solution."
@@ -66,14 +70,14 @@ export default function OurProcess() {
                 </div>
                 <div className="space-y-4">
                   {stepImages[s.n] && (
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={stepImages[s.n]}
                       alt={s.title}
                       className="w-full h-40 object-cover rounded-lg mb-2"
                     />
                   )}
                   <div className="bg-charcoal/50 border border-steel/20 rounded-lg p-6 space-y-3">
-                    <h4 className="font-subheading font-semibold text-white mb-4">What's Included:</h4>
+                    <h3 className="font-subheading font-semibold text-white mb-4">What's Included:</h3>
                     {s.detail.map((d) => (
                       <div key={d} className="flex gap-3 items-center">
                         <CheckCircle size={18} className="text-royal shrink-0" />

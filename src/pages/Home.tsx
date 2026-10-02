@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Wrench, Layers, Droplets, Zap, CheckCircle, MapPin, ArrowRight, Phone, ShieldCheck, Clock, Award } from 'lucide-react';
 import { SectionLabel, GhostNumber, SectionHeading, BlueCard, CtaBanner, StarRating } from '../components/UI';
+import Seo from '../components/Seo';
 
 const services = [
   { icon: <Wrench size={28} />, title: 'Slab Foundation Repair', description: 'Precision leveling and stabilization for concrete slab foundations using industry-leading drilled pier methods.', to: '/foundation-repair' },
@@ -25,7 +26,6 @@ const processSteps = [
 ];
 
 const areas = [
-  { label: 'Baton Rouge', to: '/baton-rouge' },
   { label: 'Central', to: '/central' },
   { label: 'Denham Springs', to: '/denham-springs' },
   { label: 'Gonzales', to: '/gonzales' },
@@ -52,7 +52,11 @@ const blogPosts = [
 export default function Home() {
   return (
     <>
-      <title>Premier Foundation Repair of Baton Rouge | Free Estimates | (225) 435-8289</title>
+      <Seo
+        title="Premier Foundation Repair of Baton Rouge | Free Estimates"
+        description="Foundation repair, pier and beam leveling, and yard drainage in Baton Rouge, LA. Free estimates, licensed and insured, lifetime transferable warranty."
+        bareTitle
+      />
 
       {/* HERO */}
       <section
@@ -78,11 +82,15 @@ export default function Home() {
           <h1 className="font-headline text-6xl md:text-8xl lg:text-9xl text-white tracking-wider leading-none mb-6">
             PREMIER<br />
             <span className="text-royal">FOUNDATION</span><br />
-            REPAIR
+            {/* Smaller than the lines above: the city has to be in the h1 for the
+                query the homepage owns, but it is four times the characters. */}
+            <span className="block text-3xl sm:text-4xl md:text-6xl lg:text-7xl mt-2">
+              REPAIR OF BATON ROUGE
+            </span>
           </h1>
 
           <p className="text-white/70 font-subheading text-lg md:text-xl max-w-2xl mb-10">
-            Protecting Baton Rouge homes with precision engineering and a lifetime warranty.
+            Protecting homes across East Baton Rouge Parish with precision engineering and a lifetime warranty.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
@@ -150,7 +158,7 @@ export default function Home() {
                     <CheckCircle size={20} />
                   </div>
                   <div>
-                    <h4 className="font-subheading font-semibold text-white">{f.title}</h4>
+                    <h3 className="font-subheading font-semibold text-white">{f.title}</h3>
                     <p className="text-white/60 text-sm font-subheading">{f.desc}</p>
                   </div>
                 </div>
@@ -188,7 +196,7 @@ export default function Home() {
                 <div className="w-16 h-16 rounded-full bg-royal flex items-center justify-center font-headline text-2xl text-white mx-auto mb-4">
                   {s.n}
                 </div>
-                <h4 className="font-headline text-xl text-charcoal tracking-wider mb-2">{s.title}</h4>
+                <h3 className="font-headline text-xl text-charcoal tracking-wider mb-2">{s.title}</h3>
                 <p className="text-steel text-sm font-subheading">{s.desc}</p>
               </div>
             ))}
@@ -278,14 +286,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {blogPosts.map((p) => (
               <div key={p.slug} className="bg-white rounded overflow-hidden border-t-4 border-royal shadow-sm">
-                <img
+                <img loading="lazy" decoding="async"
                   src={p.image}
                   alt={p.title}
                   className="w-full h-44 object-cover"
                 />
                 <div className="p-5">
                   <span className="text-xs text-steel font-subheading">{p.date}</span>
-                  <h4 className="font-subheading font-semibold text-charcoal mt-1 mb-2">{p.title}</h4>
+                  <h3 className="font-subheading font-semibold text-charcoal mt-1 mb-2">{p.title}</h3>
                   <p className="text-steel text-sm font-subheading mb-4">{p.excerpt}</p>
                   <Link to={`/${p.slug}`} className="text-royal text-sm font-subheading font-semibold flex items-center gap-1 hover:gap-2 transition-all">
                     Read More <ArrowRight size={14} />

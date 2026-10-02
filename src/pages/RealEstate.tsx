@@ -1,10 +1,14 @@
 import { ArrowRight, CheckCircle, FileText, Clock, Award } from 'lucide-react';
 import { PageHero, SectionLabel, SectionHeading, GhostNumber, CtaBanner } from '../components/UI';
+import Seo from '../components/Seo';
 
 export default function RealEstate() {
   return (
     <>
-      <title>Foundation Repair for Real Estate Agents Baton Rouge | Premier Foundation Repair</title>
+      <Seo
+        title="Foundation Repair for Real Estate Agents"
+        description="Fast foundation inspections, written estimates, and clear documentation for Baton Rouge agents working a deal on a deadline. Keep your closing on track."
+      />
       <PageHero
         title="FOUNDATION REPAIR FOR REAL ESTATE TRANSACTIONS"
         subtitle="Fast estimates, pre-listing inspections, and transferable warranties — built for Baton Rouge agents and buyers."
@@ -38,7 +42,7 @@ export default function RealEstate() {
             ].map((c) => (
               <div key={c.title} className="card-blue-border rounded-r p-6">
                 <div className="text-royal mb-3">{c.icon}</div>
-                <h4 className="font-headline text-lg text-white tracking-wider mb-2">{c.title}</h4>
+                <h3 className="font-headline text-lg text-white tracking-wider mb-2">{c.title}</h3>
                 <p className="text-white/60 text-sm font-subheading">{c.desc}</p>
               </div>
             ))}
@@ -66,7 +70,7 @@ export default function RealEstate() {
                   {s.n}
                 </div>
                 <div>
-                  <h4 className="font-subheading font-semibold text-white mb-1">{s.title}</h4>
+                  <h3 className="font-subheading font-semibold text-white mb-1">{s.title}</h3>
                   <p className="text-white/60 text-sm font-subheading">{s.desc}</p>
                 </div>
               </div>

@@ -13,7 +13,7 @@ const serviceLinks = [
 ];
 
 const areaLinks = [
-  { label: 'Baton Rouge', to: '/baton-rouge' },
+  { label: 'Baton Rouge', to: '/' },
   { label: 'Central', to: '/central' },
   { label: 'Denham Springs', to: '/denham-springs' },
   { label: 'Gonzales', to: '/gonzales' },
@@ -23,6 +23,8 @@ const areaLinks = [
 ];
 
 const resourceLinks = [
+  { label: 'About Us', to: '/about' },
+  { label: 'Contact', to: '/contact' },
   { label: 'Our Process', to: '/our-process' },
   { label: 'Warranty', to: '/warranty' },
   { label: 'Financing', to: '/financing' },
@@ -58,7 +60,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           {/* Services */}
           <div>
-            <h4 className="font-headline text-white text-lg mb-4 tracking-wider">Services</h4>
+            <h3 className="font-headline text-white text-lg mb-4 tracking-wider">Services</h3>
             <ul className="space-y-2">
               {serviceLinks.map((l) => (
                 <li key={l.to}>
@@ -72,7 +74,7 @@ export default function Footer() {
 
           {/* Service Areas */}
           <div>
-            <h4 className="font-headline text-white text-lg mb-4 tracking-wider">Service Areas</h4>
+            <h3 className="font-headline text-white text-lg mb-4 tracking-wider">Service Areas</h3>
             <ul className="space-y-2">
               {areaLinks.map((l) => (
                 <li key={l.to}>
@@ -86,7 +88,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="font-headline text-white text-lg mb-4 tracking-wider">Resources</h4>
+            <h3 className="font-headline text-white text-lg mb-4 tracking-wider">Resources</h3>
             <ul className="space-y-2">
               {resourceLinks.map((l) => (
                 <li key={l.to}>
@@ -100,7 +102,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-headline text-white text-lg mb-4 tracking-wider">Contact</h4>
+            <h3 className="font-headline text-white text-lg mb-4 tracking-wider">Contact</h3>
             <ul className="space-y-3">
               <li>
                 <a href="tel:2254358289" className="flex items-start gap-2 text-royal hover:text-white transition-colors font-subheading font-semibold">
